@@ -5,6 +5,8 @@ var mongoose = require('mongoose');
 var Promise = require('bluebird'); 
 Promise.promisifyAll(mongoose);
 
+var airline = require('airline');
+
 var databaseURI = 'mongodb://localhost:27017/auther';
 
 var db = mongoose.connect(databaseURI).connection;

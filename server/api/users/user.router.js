@@ -1,5 +1,7 @@
 'use strict';
 
+var airline = require('airline');
+
 var router = require('express').Router(),
 	_ = require('lodash');
 
@@ -24,7 +26,7 @@ router.get('/', function (req, res, next) {
 	.then(null, next);
 });
 
-router.post('/', function (req, res, next) {
+router.post('/', Auth.assertAdmin, function (req, res, next) {
 	User.create(req.body)
 	.then(function (user) {
 		res.status(201).json(user);
